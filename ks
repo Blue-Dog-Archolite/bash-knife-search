@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby$
+#!/usr/bin/env ruby
 
 top_level = `git rev-parse --show-toplevel`
 
