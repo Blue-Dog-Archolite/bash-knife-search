@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+top_level = `git rev-parse --show-toplevel`
+
+top_level = top_level.gsub("\n", '')
+
+prefix = if File.exists?([top_level,'Gemfile'].join('/'))
+           "bundle exec"
+         else 
+           ""
+         end
+
+node_name = ARGV.shift
+attr_name = ARGV.shift
+
+command = [prefix, "knife search node name:#{node_name} -a #{attr_name}"]
+puts `#{command.join(' ')}`
